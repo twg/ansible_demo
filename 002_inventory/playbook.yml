@@ -1,0 +1,24 @@
+- hosts: app-servers
+  tasks:
+    - name: Create the deploy user
+      user: name=deploy
+
+    - name: Add authorized keys for deploy
+      authorized_key: user=deploy key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+    - name: Install Node.js
+      apt: name=nodejs state=latest
+
+    - name: Install Nginx
+      apt: name=nginx state=latest
+
+- hosts: db-servers
+  tasks:
+    - name: Create the deploy user
+      user: name=deploy
+
+    - name: Add authorized keys for deploy
+      authorized_key: user=deploy key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+    - name: Install Redis
+      apt: name=redis-server state=latest

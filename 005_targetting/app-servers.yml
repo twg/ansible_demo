@@ -1,0 +1,5 @@
+- hosts: app-servers
+  roles:
+    - {role: common, tags: common}
+    - {role: nodejs, tags: ['webserver', 'nodejs']}
+    - {role: nginx, tags: ['webserver', 'nginx']}

@@ -1,0 +1,5 @@
+- name: Create the deploy user
+  user: name=deploy shell=/bin/bash
+
+- name: Add authorized keys for deploy
+  authorized_key: user=deploy key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"

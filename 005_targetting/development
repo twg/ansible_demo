@@ -1,0 +1,8 @@
+app ansible_ssh_host=10.0.0.90
+db ansible_ssh_host=10.0.0.91
+
+[app-servers]
+app
+
+[db-servers]
+db

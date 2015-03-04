@@ -1,0 +1,10 @@
+- hosts: app-servers
+  roles:
+    - common
+    - nodejs
+    - nginx
+
+- hosts: db-servers
+  roles:
+    - common
+    - redis

@@ -1,0 +1,3 @@
+log_files:
+  - /home/{{ user }}/application.log
+  - /home/{{ user }}/access.log

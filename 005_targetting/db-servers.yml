@@ -1,0 +1,4 @@
+- hosts: db-servers
+  roles:
+    - {role: common, tags: common}
+    - redis
