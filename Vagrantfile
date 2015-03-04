@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ## 001_playbooks ##
     ###################
 
-    # ansible.playbook = "001_playbooks/playbook.yml"
+    ansible.playbook = "001_playbooks/playbook.yml"
 
 
     ###################
@@ -49,27 +49,27 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ## 005_targetting ##
     ####################
 
-    # 1. Execute entire playbook
-    #    ansible-playbook 005_targetting/playbook.yml -i 005_targetting/development
+    ## 1. Execute entire playbook
+    ##    ansible-playbook 005_targetting/playbook.yml -i 005_targetting/development
     # ansible.playbook = "005_targetting/playbook.yml"
     # ansible.inventory_path = "005_targetting/development"
 
-    # 2. Execute `common` role on all servers
-    #    ansible-playbook 005_targetting/playbook.yml -i 005_targetting/development -t common
+    ## 2. Execute `common` role on all servers
+    ##    ansible-playbook 005_targetting/playbook.yml -i 005_targetting/development -t common
     # ansible.playbook = "005_targetting/playbook.yml"
     # ansible.inventory_path = "005_targetting/development"
     # ansible.tags = ['common']
 
-    # 3. Execute `common` role only on app servers
-    #    ansible-playbook 005_targetting/app-servers.yml -i 005_targetting/development -t common
+    ## 3. Execute `common` role only on app servers
+    ##    ansible-playbook 005_targetting/app-servers.yml -i 005_targetting/development -t common
     # ansible.playbook = "005_targetting/app-servers.yml"
     # ansible.inventory_path = "005_targetting/development"
     # ansible.tags = ['common']
 
-    # 4. Execute all roles except `redis`
-    #    ansible-playbook 005_targetting/app-servers.yml -i 005_targetting/development --skip-tags redis
-    ansible.playbook = "005_targetting/playbook.yml"
-    ansible.inventory_path = "005_targetting/development"
-    ansible.skip_tags = ['redis']
+    ## 4. Execute all roles except `redis`
+    ##    ansible-playbook 005_targetting/app-servers.yml -i 005_targetting/development --skip-tags redis
+    # ansible.playbook = "005_targetting/playbook.yml"
+    # ansible.inventory_path = "005_targetting/development"
+    # ansible.skip_tags = ['redis']
   end
 end
