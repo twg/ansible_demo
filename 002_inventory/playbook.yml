@@ -1,7 +1,7 @@
 - hosts: app-servers
   tasks:
     - name: Create the deploy user
-      user: name=deploy
+      user: name=deploy shell=/bin/bash
 
     - name: Add authorized keys for deploy
       authorized_key: user=deploy key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
@@ -15,7 +15,7 @@
 - hosts: db-servers
   tasks:
     - name: Create the deploy user
-      user: name=deploy
+      user: name=deploy shell=/bin/bash
 
     - name: Add authorized keys for deploy
       authorized_key: user=deploy key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
